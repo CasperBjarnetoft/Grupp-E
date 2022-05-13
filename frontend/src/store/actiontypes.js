@@ -9,6 +9,12 @@ const actiontypes = () => {
       setProduct: 'SET_PRODUCT',
       loading: 'LOADING',
       failure: 'PRODUCT_FAILURE'
+    },
+    cart: {
+      add: 'ADD_TO_CART',
+      decrement: 'DECREMENT',
+      removeOne: 'REMOVE_ONE',
+      clearCart: 'CLEAR_CART',
     }
   }
 }

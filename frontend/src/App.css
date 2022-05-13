@@ -11,3 +11,14 @@ body {
   height: 100%;
   width: 100%;
 }
+
+.shopping-cart {
+  min-width: 550px;
+}
+
+.cart-image {
+  width: 100px;
+  aspect-ratio: 1;
+  object-fit: contain;
+
+}

@@ -1,7 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { useSelector } from 'react-redux'
+import Cart from './Cart/Cart'
 
 const Navbar = () => {
+
+  const totalQuantity = useSelector(state => state.cart.totalQuantity)
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-light text-light bg-info">
@@ -40,9 +45,24 @@ const Navbar = () => {
 
           <div className="d-flex align-items-center">
 
-            <Link className="text-reset me-3" to="/">
-              <i className="fas fa-shopping-cart"></i>
-            </Link>
+          <div className="dropdown">
+              <span
+                className="text-reset me-3 dropdown-toggle hidden-arrow"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-mdb-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i className="fas fa-shopping-cart"></i>
+                {totalQuantity >= 1 && <span className="badge rounded-pill badge-notification bg-danger">{totalQuantity}</span>}
+              </span>
+              <ul
+                className="dropdown-menu dropdown-menu-end shopping-cart"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <Cart />
+              </ul>
+            </div>
 
             <div className="dropdown ">
               <Link
