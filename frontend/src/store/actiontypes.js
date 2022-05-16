@@ -15,6 +15,18 @@ const actiontypes = () => {
       decrement: 'DECREMENT',
       removeOne: 'REMOVE_ONE',
       clearCart: 'CLEAR_CART',
+    },
+    login: {
+      userLogin: 'USER_LOGIN',
+      loading: 'LOADING',
+      failure: 'FAILURE',
+      userLogout: 'USER_LOGOUT'
+    },
+    register: {
+      userRegister: 'USER_REGISTER',
+      loading: 'LOADING',
+      failure: 'FAILURE',
+
     }
   }
 }
