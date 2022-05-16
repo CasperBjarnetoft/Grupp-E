@@ -1,10 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Cart from "./Cart/Cart";
+import { logOut } from "../store/actions/authAction";
 
 const Navbar = () => {
+  const { userInfo } = useSelector((state) => state.userLogin);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
+  
+  const dispatch = useDispatch();
+
+  const logUserOut = () => {
+    dispatch(logOut);
+    console.log("token removed");
+  };
 
   return (
     <div>
@@ -64,7 +73,6 @@ const Navbar = () => {
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <Cart />
-  
               </ul>
             </div>
 
@@ -96,17 +104,16 @@ const Navbar = () => {
                 </li>
                 <li>
                   <Link className="dropdown-item" to="/login">
-                   Login
+                    Login
                   </Link>
                 </li>
-               
+
                 <li>
                   <Link className="dropdown-item" to="/">
                     Logout
                   </Link>
                 </li>
               </ul>
-             
             </div>
           </div>
         </div>
