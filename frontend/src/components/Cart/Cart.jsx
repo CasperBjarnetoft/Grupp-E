@@ -13,7 +13,7 @@ const Cart = () => {
 
   const checkoutHandler = () => {
     if (userInfo) {
-      dispatch(createOrder(cart));
+      dispatch(createOrder({ orderItems: cart, qty: cart.quantity }));
       navigate("/myprofile");
     } else {
       navigate("/login");

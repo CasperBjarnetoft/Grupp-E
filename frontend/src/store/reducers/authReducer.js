@@ -29,6 +29,7 @@ export const userLoginReducer = (state = initialState, action) => {
         case actiontypes().login.userLogout:
             return {
                 ...state,
+                loading:false,
                 userInfo: {}
 
             }

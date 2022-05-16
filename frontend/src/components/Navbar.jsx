@@ -11,7 +11,7 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const logUserOut = () => {
-    dispatch(logOut);
+    dispatch(logOut());
     console.log("token removed");
   };
 
@@ -105,7 +105,7 @@ const Navbar = () => {
                   </li>
 
                   <li>
-                    <Link className="dropdown-item" to="/">
+                    <Link className="dropdown-item" to="/" onClick={logUserOut}>
                       Logout
                     </Link>
                   </li>

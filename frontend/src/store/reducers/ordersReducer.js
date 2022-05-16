@@ -62,19 +62,21 @@ export const orderListMyReducer = (state = initialState, action) => {
 
         case actiontypes().myOrders.loading:
             return {
+                ...state,
                 loading: true,
             }
 
         case actiontypes().myOrders.getMyOrders:
             return {
-                orders: action.payload,
+                ...state,
                 loading: false,
-                error: null
+                orders: action.payload,
 
             }
 
         case actiontypes().myOrders.failure:
             return {
+                ...state,
                 loading: false,
                 error: action.payload,
             }

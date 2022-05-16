@@ -73,6 +73,38 @@ export const getMyOrders = () => async (dispatch, getState) => {
   }
 }
 
+// get orders by id
+
+export const getOrderDetails = (id) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: actiontypes().orderDetails.loading,
+    })
+
+    const {
+      userLogin: { userInfo },
+    } = getState()
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    }
+
+    const { data } = await axios.get(`http://localhost:4000/orders/${id}`, config)
+
+    dispatch({
+      type:actiontypes().orderDetails.getOrderDetails,
+      payload: data,
+    })
+  } catch (error) {
+    dispatch({
+      type: actiontypes().orderDetails.failure,
+      payload: error.message,
+    })
+  }
+}
+
 
 
 
