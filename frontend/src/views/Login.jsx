@@ -25,7 +25,7 @@ const Login = () => {
         e.preventDefault()
 
         dispatch(login(email, password))
-        navigate("/")
+        //navigate("/myprofile")
 
 
         formData.password = ""

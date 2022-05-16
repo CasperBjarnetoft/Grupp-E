@@ -18,7 +18,8 @@ export const userLoginReducer = (state = initialState, action) => {
         case actiontypes().login.userLogin:
             return {
                 ...state,
-                userInfo: action.payload
+                userInfo: action.payload,
+                loading:false
             }
         case actiontypes().login.failure:
             return {

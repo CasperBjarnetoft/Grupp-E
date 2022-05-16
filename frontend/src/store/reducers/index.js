@@ -11,7 +11,7 @@ export default combineReducers({
   cart: cartReducer,
   userLogin: userLoginReducer,
   UserRegister: userRegisterReducer,
-  orders: orderListReducer,
+  orderList: orderListReducer,
   myOrders: orderListMyReducer,
   orderDetails: orderDetailsReducer,
   orderCreate: orderCreateReducer
