@@ -14,7 +14,7 @@ const auth = async (req, res, next) => {
         throw new Error("Not authorized, no token");
       }
       // decoded contains the user's id. We verify the token
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      const decoded = jwt.verify(token, process.env.jwt_secret);
       // console.log(decoded)
       req.user = await UserModel.findById(decoded.id).select("-password");
       next();
@@ -27,12 +27,12 @@ const auth = async (req, res, next) => {
 
 };
 
-const admin = (req,res,next)=>{
-  if(req.user && req.user.isAdmin){
+const admin = (req, res, next) => {
+  if (req.user && req.user.isAdmin) {
     next()
-  }else{
-    res.status(401).json({msg:"not authorised as an admin"})
+  } else {
+    res.status(401).json({ msg: "not authorised as an admin" })
   }
 }
 
-module.exports= {auth, admin}
+module.exports = { auth, admin }

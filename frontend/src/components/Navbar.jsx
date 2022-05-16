@@ -7,7 +7,7 @@ import { logOut } from "../store/actions/authAction";
 const Navbar = () => {
   const { userInfo } = useSelector((state) => state.userLogin);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-  
+
   const dispatch = useDispatch();
 
   const logUserOut = () => {
@@ -93,27 +93,35 @@ const Navbar = () => {
                   loading="lazy"
                 />
               </Link>
-              <ul
-                className="dropdown-menu dropdown-menu-end"
-                aria-labelledby="navbarDropdownMenuAvatar"
-              >
-                <li>
-                  <Link className="dropdown-item" to="/">
-                    My profile
-                  </Link>
-                </li>
-                <li>
-                  <Link className="dropdown-item" to="/login">
-                    Login
-                  </Link>
-                </li>
+              {userInfo ? (
+                <ul
+                  className="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="navbarDropdownMenuAvatar"
+                >
+                  <li>
+                    <Link className="dropdown-item" to="/myprofile">
+                      My profile
+                    </Link>
+                  </li>
 
-                <li>
-                  <Link className="dropdown-item" to="/">
-                    Logout
-                  </Link>
-                </li>
-              </ul>
+                  <li>
+                    <Link className="dropdown-item" to="/">
+                      Logout
+                    </Link>
+                  </li>
+                </ul>
+              ) : (
+                <ul
+                  className="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="navbarDropdownMenuAvatar"
+                >
+                  <li>
+                    <Link className="dropdown-item" to="/login">
+                      Login
+                    </Link>
+                  </li>
+                </ul>
+              )}
             </div>
           </div>
         </div>
