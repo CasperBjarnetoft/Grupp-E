@@ -7,13 +7,12 @@ import { createOrder } from "../../store/actions/orderActions";
 const Cart = () => {
   const { cart, totalAmount } = useSelector((state) => state.cart);
   const { userInfo } = useSelector((state) => state.userLogin);
-  const { order, error } = useSelector((state) => state.orderCreate);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const checkoutHandler = () => {
     if (userInfo) {
-      dispatch(createOrder({ orderItems: cart, qty: cart.quantity }));
+      dispatch(createOrder(cart));
       navigate("/myprofile");
     } else {
       navigate("/login");

@@ -105,7 +105,7 @@ const Navbar = () => {
                   </li>
 
                   <li>
-                    <Link className="dropdown-item" to="/" onClick={logUserOut}>
+                    <Link className="dropdown-item" to="/login" onClick={logUserOut}>
                       Logout
                     </Link>
                   </li>

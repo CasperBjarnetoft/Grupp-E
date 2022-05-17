@@ -2,7 +2,7 @@
 import actiontypes from "../actiontypes"
 
 const initialState = {
-    userInfo: {},
+    userInfo: null,
     loading: false,
     error: {}
 }
@@ -30,7 +30,7 @@ export const userLoginReducer = (state = initialState, action) => {
             return {
                 ...state,
                 loading:false,
-                userInfo: {}
+                userInfo: null
 
             }
 

@@ -3,7 +3,6 @@ import actiontypes from '../actiontypes'
 
 
 // login user
-
 export const login = (email, password) => async (dispatch) => {
     try {
         dispatch({
