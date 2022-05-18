@@ -42,7 +42,7 @@ const MyProfile = () => {
               <td>{order.createdAt.substring(0, 10)}</td>
               <td>
                 <Link to={`/order/${order._id}`}>
-                  <button>Details</button>
+                  <button className="btn btn-info text-light">Details</button>
                 </Link>
               </td>
             </tr>

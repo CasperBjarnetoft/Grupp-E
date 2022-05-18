@@ -22,3 +22,13 @@ body {
   object-fit: contain;
 
 }
+
+.order {
+  height: 100px;
+  margin-bottom: 7rem;
+}
+
+.order .image-container {
+  height: 100%;
+  width: 25%;
+}

@@ -24,18 +24,19 @@ const OrderDetails = () => {
         <>
           {order &&
             order.orderItems.map((item, index) => (
-              <div className="row" key={index}>
-                <div className="col col-md-1">
-                  <img src={item.image} alt={item.name} />
-                </div>
-                <div className="col">
-                  <Link to={`/product/${item.product}`}>{item.name}</Link>
-                </div>
-                <div className="col col-md-4">
-                  {item.quantity} X ${item.price} = $
-                  {item.quantity * item.price}
+              <div className='container mt-3 col order' key={index}>
+                <div className="card d-flex flex-row">
+                  <div className="image-container">
+                    <img src={item.image} className="img-fluid image" alt='product'/>
+                  </div>
+                  <div className="card-body w-100">
+                    <h5 className="card-title">{item.name}</h5>
+                    <div>
+                      {`${item.quantity} X $${item.quantity * Math.round(item.price)}` }
+                  </div>
                 </div>
               </div>
+            </div>
             ))}
         </>
       )}
