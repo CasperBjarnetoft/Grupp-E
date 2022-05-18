@@ -105,7 +105,11 @@ const Navbar = () => {
                   </li>
 
                   <li>
-                    <Link className="dropdown-item" to="/login" onClick={logUserOut}>
+                    <Link
+                      className="dropdown-item"
+                      to="/login"
+                      onClick={logUserOut}
+                    >
                       Logout
                     </Link>
                   </li>
@@ -121,6 +125,17 @@ const Navbar = () => {
                     </Link>
                   </li>
                 </ul>
+              )}
+              {userInfo && userInfo.isAdmin && (
+                <div className="dropdown ">
+                  <ul>
+                    <li>
+                      <Link className="dropdown-item" to="/myprofile">
+                        orders
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               )}
             </div>
           </div>

@@ -79,6 +79,7 @@ export const getMyOrders = () => async (dispatch, getState) => {
 // get orders by id
 
 export const getOrderById = (id) => async (dispatch, getState) => {
+  console.log("1asdasd")
   try {
     dispatch({
       type: actiontypes().orderDetails.loading,
@@ -94,13 +95,15 @@ export const getOrderById = (id) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.get(`http://localhost:4000/orders/${id}`, config)
+    const res = await axios.get(`http://localhost:4000/orders/${id}`, config)
+    console.log(res)
 
     dispatch({
       type: actiontypes().orderDetails.getOrderDetails,
-      payload: data,
+      payload: res.data,
     })
   } catch (error) {
+    console.log(error.message)
     dispatch({
       type: actiontypes().orderDetails.failure,
       payload: error.message,
@@ -108,6 +111,37 @@ export const getOrderById = (id) => async (dispatch, getState) => {
   }
 }
 
+
+// get all orders ( by admin)
+export const getAllOrders = () => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: actiontypes().orders.loading,
+    })
+
+    const {
+      userLogin: { userInfo },
+    } = getState()
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+    }
+
+    const { data } = await axios.get("http://localhost:4000/orders", config)
+
+    dispatch({
+      type: actiontypes().orders.getAllOrders,
+      payload: data,
+    })
+  } catch (error) {
+    dispatch({
+      type: actiontypes().orders.failure,
+      payload: error.message,
+    })
+  }
+}
 
 
 
