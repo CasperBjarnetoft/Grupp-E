@@ -22,11 +22,18 @@ export const createOrder = (order) => async (dispatch, getState) => {
       },
     };
 
+    // const _order = {
+    //   ...order,
+    //   user: userInfo._id
+    // }
+
     const { data } = await axios.post(
       `http://localhost:4000/orders`,
       order,
       config
     );
+
+
 
     dispatch({
       type: actiontypes().createOrder.createOrder,
@@ -94,7 +101,7 @@ export const getOrderDetails = (id) => async (dispatch, getState) => {
     const { data } = await axios.get(`http://localhost:4000/orders/${id}`, config)
 
     dispatch({
-      type:actiontypes().orderDetails.getOrderDetails,
+      type: actiontypes().orderDetails.getOrderDetails,
       payload: data,
     })
   } catch (error) {
