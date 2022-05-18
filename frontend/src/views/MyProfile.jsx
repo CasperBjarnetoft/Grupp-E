@@ -9,7 +9,6 @@ const MyProfile = () => {
   const dispatch = useDispatch();
   const Navigate = useNavigate();
   const { orders, loading, error } = useSelector((state) => state.myOrders);
-  console.log("orders", orders);
 
   const { userInfo } = useSelector((state) => state.userLogin);
 
@@ -25,10 +24,10 @@ const MyProfile = () => {
     <>
       <p className="mt-3">
         Welcome back{" "}
-        <span class="text-info">{userInfo.name ? userInfo.name : ""}! </span>{" "}
+        <span className="text-info">{userInfo.name && userInfo.name}! </span>{" "}
       </p>
 
-      <table class="table">
+      <table className="table">
         <thead>
           <tr>
             <th scope="col">ID</th>

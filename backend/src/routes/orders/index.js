@@ -57,6 +57,7 @@ orderRouter.get("/:id", auth, async (req, res, next) => {
   );
 
   if (order) {
+    console.log('order', order)
     res.json(order);
   } else {
     res.status(404);
