@@ -7,7 +7,6 @@ import { createOrder } from "../../store/actions/orderActions";
 const Cart = () => {
   const { cart, totalAmount } = useSelector((state) => state.cart);
   const { userInfo } = useSelector((state) => state.userLogin);
-  const { order, error } = useSelector((state) => state.orderCreate);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
