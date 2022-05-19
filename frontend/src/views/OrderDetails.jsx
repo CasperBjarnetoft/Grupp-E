@@ -10,7 +10,6 @@ const OrderDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
-   
     dispatch(getOrderById(id));
   }, [dispatch, id]);
 
@@ -24,19 +23,27 @@ const OrderDetails = () => {
         <>
           {order &&
             order.orderItems.map((item, index) => (
-              <div className='container mt-3 col order' key={index}>
+              <div className="container mt-3 col order" key={index}>
                 <div className="card d-flex flex-row">
                   <div className="image-container">
-                    <img src={item.image} className="img-fluid image" alt='product'/>
+                    <img
+                      src={item.image}
+                      className="img-fluid image"
+                      alt="product"
+                    />
                   </div>
                   <div className="card-body w-100">
-                    <h5 className="card-title">{item.name}</h5>
+                    <Link to={`/products/${item._id}`}>
+                      <h5 className="card-title">{item.name}</h5>
+                    </Link>
                     <div>
-                      {`${item.quantity} X $${item.quantity * Math.round(item.price)}` }
+                      {`${item.quantity} X $${
+                        item.quantity * Math.round(item.price)
+                      }`}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
             ))}
         </>
       )}

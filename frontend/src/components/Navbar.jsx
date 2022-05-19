@@ -8,7 +8,7 @@ const Navbar = () => {
   const { userInfo } = useSelector((state) => state.userLogin);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
-  console.log(userInfo)
+  console.log(userInfo);
   const dispatch = useDispatch();
 
   const logUserOut = () => {
@@ -50,6 +50,13 @@ const Navbar = () => {
                   Products
                 </Link>
               </li>
+              {userInfo && userInfo.isAdmin && (
+                <li className="nav-item">
+                  <Link className="nav-link text-light" to="/orders">
+                    Orders
+                  </Link>
+                </li>
+              )}
             </ul>
           </div>
 
@@ -127,17 +134,7 @@ const Navbar = () => {
                   </li>
                 </ul>
               )}
-              {userInfo && userInfo.isAdmin && (
-                <div className="dropdown ">
-                  <ul>
-                    <li>
-                      <Link className="dropdown-item" to="/myprofile">
-                        orders
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              )}
+        
             </div>
           </div>
         </div>

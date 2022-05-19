@@ -100,6 +100,7 @@ export const orderListReducer = (state = { orders: [] }, action) => {
             }
         case actiontypes().orders.getAllOrders:
             return {
+                ...state,
                 loading: false,
                 orders: action.payload,
             }

@@ -7,6 +7,7 @@ import Register from "./Register";
 import Login from "./Login";
 import MyProfile from "./MyProfile";
 import OrderDetails from "./OrderDetails";
+import OrderList from "./OrderList";
 
 const Views = () => {
   return (
@@ -19,6 +20,7 @@ const Views = () => {
         <Route path="/register" element={<Register />}></Route>
         <Route path="/myprofile" element={<MyProfile />}></Route>
         <Route path="/order/:id" element={<OrderDetails />}></Route>
+        <Route path="/orders" element={<OrderList />}></Route>
       </Routes>
     </div>
   );
