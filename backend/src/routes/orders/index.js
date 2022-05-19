@@ -7,7 +7,8 @@ const OrderModel = require('./schema')
 //make an order
 orderRouter.post("/", auth, async (req, res, next) => {
   const {
-    orderItems
+    orderItems,
+    totalQty
   } = req.body;
 
   if (orderItems && orderItems.length === 0) {
@@ -16,6 +17,7 @@ orderRouter.post("/", auth, async (req, res, next) => {
   } else {
     const order = new OrderModel({
       orderItems,
+      totalQty,
       user: req.user._id,
 
 

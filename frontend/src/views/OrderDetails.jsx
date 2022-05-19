@@ -37,9 +37,8 @@ const OrderDetails = () => {
                       <h5 className="card-title">{item.name}</h5>
                     </Link>
                     <div>
-                      {`${item.quantity} X $${
-                        item.quantity * Math.round(item.price)
-                      }`}
+                      {item.quantity} X {item.price} ={" "}
+                      <strong>${Math.round(item.quantity * item.price)}</strong>
                     </div>
                   </div>
                 </div>

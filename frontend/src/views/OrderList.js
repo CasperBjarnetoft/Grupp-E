@@ -39,6 +39,7 @@ const OrderList = () => {
                             <th scope="col">ID</th>
                             <th scope="col">USER</th>
                             <th scope="col">DATE</th>
+                            <th scope="col">TOTAL</th>
                             <th scope="col">DETAILS</th>
                         </tr>
                     </thead>
@@ -48,6 +49,7 @@ const OrderList = () => {
                                 <td>{order._id}</td>
                                 <td>{order.user && order.user.name}</td>
                                 <td>{order.createdAt.substring(0, 10)}</td>
+                                <td>{order.totalQty && order.totalQty}</td>
                                 <td>
                                     <Link to={`/order/${order._id}`}>
                                         <button className="btn btn-info text-light">Details</button>

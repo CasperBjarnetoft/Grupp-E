@@ -5,15 +5,22 @@ import { clearCart } from "../../store/actions/cartActions";
 import { createOrder } from "../../store/actions/orderActions";
 
 const Cart = () => {
-  const { cart, totalAmount } = useSelector((state) => state.cart);
+  const { cart, totalAmount, totalQuantity } = useSelector(
+    (state) => state.cart
+  );
   const { userInfo } = useSelector((state) => state.userLogin);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const checkoutHandler = () => {
     if (userInfo) {
-      dispatch(createOrder({ orderItems: cart }));
-      dispatch(clearCart())
+      dispatch(
+        createOrder({
+          orderItems: cart,
+          totalQty: totalQuantity,
+        })
+      );
+      dispatch(clearCart());
       navigate("/myprofile");
     } else {
       navigate("/login");
