@@ -8,6 +8,7 @@ import Login from "./Login";
 import MyProfile from "./MyProfile";
 import OrderDetails from "./OrderDetails";
 import OrderList from "./OrderList";
+import NotFound from "./NotFound";
 
 const Views = () => {
   return (
@@ -21,6 +22,7 @@ const Views = () => {
         <Route path="/myprofile" element={<MyProfile />}></Route>
         <Route path="/order/:id" element={<OrderDetails />}></Route>
         <Route path="/orders" element={<OrderList />}></Route>
+        {/* <Route path="*" element={NotFound}></Route> */}
       </Routes>
     </div>
   );

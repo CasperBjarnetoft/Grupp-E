@@ -20,7 +20,6 @@ body {
   width: 100px;
   aspect-ratio: 1;
   object-fit: contain;
-
 }
 
 .order {
@@ -31,4 +30,12 @@ body {
 .order .image-container {
   height: 100%;
   width: 25%;
+}
+
+.not_found {
+  background-image: url("https://image.freepik.com/free-vector/blue-smoke-isolated-dark-transparent-background-realistic-blue-magic-mist-cloud-chemical-toxic-gas-steam-waves-realistic-illustration_119445-264.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 1200px;
 }

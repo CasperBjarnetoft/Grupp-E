@@ -25,9 +25,7 @@ const OrderList = () => {
     return (
         <div className="container">
             <h1>orders</h1>
-            {/* {orders && orders.map(order => (
-                <h1>{order.user && order.user.name}</h1>
-            ))} */}
+           
             {loading ? (
                 <Loader />
             ) : error ? (

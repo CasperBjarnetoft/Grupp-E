@@ -26,6 +26,9 @@ const MyProfile = () => {
         Welcome back{" "}
         <span className="text-info">{userInfo.name && userInfo.name}! </span>{" "}
       </p>
+      <div className="text-center mb-3">
+        <h3>Your Orders</h3>
+      </div>
 
       <table className="table">
         <thead>

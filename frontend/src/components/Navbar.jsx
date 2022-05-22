@@ -35,7 +35,7 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <h1>
               <Link className="text-light me-4" to="/">
-                E-commerce
+                electroShop
               </Link>
             </h1>
 
@@ -108,7 +108,7 @@ const Navbar = () => {
                 >
                   <li>
                     <Link className="dropdown-item" to="/myprofile">
-                      My profile
+                      {userInfo.name}
                     </Link>
                   </li>
 
@@ -134,7 +134,6 @@ const Navbar = () => {
                   </li>
                 </ul>
               )}
-        
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../store/actions/authAction";
-//import Message from './Message'
+import Message from "../components/Message";
 import Loader from "../components/Loader";
 
 const Login = () => {
@@ -33,8 +33,8 @@ const Login = () => {
   return (
     <div className="container">
       <h1 className="text-center">Sign In</h1>
-      {/* {error && <Message>fields can't be empty</Message>} */}
-      {loading && <Loader />}
+
+      {loading && <Loader />} 
       <form className="mt-4" onSubmit={handleSubmit}>
         <div className=" mb-4">
           <input
