@@ -14,6 +14,10 @@ const OrderSchema = mongoose.Schema(
             type: Number,
             default: 0.0,
         },
+        isDelivered:{
+            type:Boolean,
+            default:false
+        }
 
     },
 

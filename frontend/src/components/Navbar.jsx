@@ -8,7 +8,6 @@ const Navbar = () => {
   const { userInfo } = useSelector((state) => state.userLogin);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
 
-  console.log(userInfo);
   const dispatch = useDispatch();
 
   const logUserOut = () => {

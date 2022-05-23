@@ -39,3 +39,10 @@ body {
   background-attachment: fixed;
   height: 1200px;
 }
+
+/* tr.delivered {
+  border-right: 2px solid green;
+}
+tr.notdelivered {
+  border-right: 2px solid red;
+} */
