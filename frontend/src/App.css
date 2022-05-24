@@ -40,9 +40,24 @@ body {
   height: 1200px;
 }
 
-/* tr.delivered {
+tr.delivered {
   border-right: 2px solid green;
 }
 tr.notdelivered {
   border-right: 2px solid red;
-} */
+}
+
+.fa-solid.fa-check{
+  color: green;
+  
+}
+
+button.order_delivered{
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding: 0.2rem;
+  justify-content: center;
+  font-size: 1.5rem;
+ 
+}

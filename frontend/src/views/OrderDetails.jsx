@@ -16,6 +16,12 @@ const OrderDetails = () => {
   return (
     <div className="container">
       <h2>Order Items</h2>
+      {order && order.isDelivered && order.isDelivered === true && (
+        <button className="order_delivered btn-success">
+          <i class="fa-solid fa-check fa-2x mr-3"></i>
+           Delivered
+        </button>
+      )}
       {order && order.orderItems.length === 0 ? (
         //  <Message>Order Is empty</Message>
         <p>There is no order</p>

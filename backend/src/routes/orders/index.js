@@ -84,4 +84,63 @@ orderRouter.get("/", auth, admin, async (req, res, next) => {
 });
 
 
+// //update an order
+
+// orderRouter.put("/:id", auth, admin, async (req, res, next) => {
+//     const {
+//       orderItems,
+//       totalQty,
+//       isDelivered
+//     } = req.body;
+
+//     try {
+//         const order = await OrderModel.findById(req.params.id);
+
+//         if (order) {
+//             order.orderItems= orderItems
+//             order.totalQty= totalQty
+//             order.isDelivered= isDelivered
+           
+//             const updatedOrder = await order.save();
+//             res.json(updatedOrder);
+//         } else {
+//             const error = new Error(`order with id ${req.params.id} not found`);
+//             error.httpStatusCode = 404;
+//             next(error);
+//         }
+//     } catch (error) {
+//         next(error);
+//     }
+// });
+
+//update an order
+
+orderRouter.put("/:id", auth, admin, async (req, res, next) => {
+  const {
+    orderItems,
+    totalQty,
+    isDelivered
+  } = req.body;
+
+  try {
+      const order = await OrderModel.findById(req.params.id);
+
+      if (order) {
+
+          order.isDelivered= !isDelivered
+         
+          const updatedOrder = await order.save();
+          res.json(updatedOrder);
+      } else {
+          const error = new Error(`order with id ${req.params.id} not found`);
+          error.httpStatusCode = 404;
+          next(error);
+      }
+  } catch (error) {
+      next(error);
+  }
+});
+
+
+
 module.exports = orderRouter
