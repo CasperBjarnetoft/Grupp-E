@@ -79,7 +79,6 @@ export const getMyOrders = () => async (dispatch, getState) => {
 // get orders by id
 
 export const getOrderById = (id) => async (dispatch, getState) => {
-  console.log("1asdasd")
   try {
     dispatch({
       type: actiontypes().orderDetails.loading,
@@ -96,7 +95,41 @@ export const getOrderById = (id) => async (dispatch, getState) => {
     }
 
     const res = await axios.get(`http://localhost:4000/orders/${id}`, config)
+    console.log(res.data)
 
+    dispatch({
+      type: actiontypes().orderDetails.getOrderDetails,
+      payload: res.data,
+    })
+  } catch (error) {
+    console.log(error.message)
+    dispatch({
+      type: actiontypes().orderDetails.failure,
+      payload: error.message,
+    })
+  }
+}
+
+export const putOrderById = (id) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: actiontypes().orderDetails.loading,
+    })
+
+    const {
+      userLogin: { userInfo },
+    } = getState()
+
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInfo.token}`,
+      },
+
+    }
+
+    const res = await axios.put(`http://localhost:4000/orders/${id}`, config)
+   
+    console.log(res.data)
 
     dispatch({
       type: actiontypes().orderDetails.getOrderDetails,

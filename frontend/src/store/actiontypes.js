@@ -16,7 +16,6 @@ const actiontypes = () => {
       removeOne: 'REMOVE_ONE',
       clearCart: 'CLEAR_CART',
     },
-
     orders: {
       getAllOrders: 'GET_ALL_ORDERS',
       loading: 'LOADING',

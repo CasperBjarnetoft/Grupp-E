@@ -34,7 +34,7 @@ const Login = () => {
     <div className="container">
       <h1 className="text-center">Sign In</h1>
 
-      {loading && <Loader />} 
+      {/* {loading && <Loader />}  */}
       <form className="mt-4" onSubmit={handleSubmit}>
         <div className=" mb-4">
           <input

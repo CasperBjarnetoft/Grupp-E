@@ -4,6 +4,7 @@ import { getAllOrders } from '../store/actions/orderActions'
 import { useNavigate, Link } from 'react-router-dom'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+import axios from 'axios'
 
 const OrderList = () => {
 
@@ -24,24 +25,19 @@ const OrderList = () => {
         }
     }, [dispatch, navigate, userInfo])
 
+    // const ToggleDelivered = (order) => {
+    //     console.log(order._id)
+    //     dispatch(putOrderById(order._id));     
+    // }
 
-    const toggleDelivered = (order) => {
-        setCheck(!check)
-        order.isDelivered = !order.isDelivered
-        setOrdersD(state => state)
-        // !check ? setOrdersD(orders.map((order) => (
-        //     // order._id === id ? { ...order, isDelivered: !order.isDelivered } : order
-
-        // ))) : setOrdersD(orders)
-
-        // setOrdersD(orders.map((order) => (
-
-        //     order._id === id ? { ...order, isDelivered: !order.isDelivered } : order
-
-        // )))
-        console.log('deliverd')
+    const tempput = (order) => {
+        const config = {
+            headers: {
+              Authorization: `Bearer ${userInfo.token}`
+            }
+          }
+        axios.put(`http://localhost:4000/orders/${order._id}`, {}, config).then((response) => console.log(response.data)).catch((error) => console.log(error));
     }
-
 
     return (
         <div className="container">
@@ -66,16 +62,14 @@ const OrderList = () => {
                     <tbody>
                         {orders.map((order) => (
                             <tr key={order._id} className={order.isDelivered ? 'delivered' : 'notdelivered'}>
-                                <td>{order._id}- {() => toggleDelivered(order._id)}</td>
+                                <td>{order._id}</td>
                                 <td>{order.user && order.user.name}</td>
                                 <td>{order.createdAt.substring(0, 10)}</td>
                                 <td>{order.totalQty && order.totalQty}</td>
                                 <td>
-
                                     <p>
-                                        <input type="checkbox" value={check} onChange={() => toggleDelivered(order._id)}></input>
+                                        <input type="checkbox" onChange={() => tempput(order)}></input>
                                     </p>
-
                                 </td>
                                 <td>
                                     <Link to={`/order/${order._id}`}>

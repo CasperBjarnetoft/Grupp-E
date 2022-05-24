@@ -69,8 +69,23 @@ export const register = (formData) => async (dispatch) => {
         })
 
     }
-
-
 }
+
+export const checkUser = () => {
+    return dispatch => {
+      let token = localStorage.getItem('userInfo')
+      if(token) {
+          dispatch(authSuccess(token))
+      }
+    }
+  }
+
+
+const authSuccess = token => {
+    return {
+      type: actiontypes().login.userLogin,
+      payload: token
+    }
+  }
 
 
