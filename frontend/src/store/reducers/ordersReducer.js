@@ -92,7 +92,7 @@ export const orderListMyReducer = (state = initialState, action) => {
     }
 }
 
-export const orderListReducer = (state = { orders: [] }, action) => {
+export const orderListReducer = (state = initialState, action) => {
     switch (action.type) {
         case actiontypes().orders.loading:
             return {
@@ -108,6 +108,19 @@ export const orderListReducer = (state = { orders: [] }, action) => {
             return {
                 loading: false,
                 error: action.payload,
+            }
+        case actiontypes().orders.updateOrder:
+            console.log('reducer ', action.payload)
+            console.log(state)
+            return {
+                ...state,
+                loading: false,
+                orders: state.orders.map(order => {
+                    if(order._id === action.payload._id) {
+                        order.isDelivered = action.payload.isDelivered
+                    }
+                    return order
+                })
             }
         default:
             return state

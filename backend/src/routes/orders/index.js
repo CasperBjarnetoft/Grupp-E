@@ -116,18 +116,18 @@ orderRouter.get("/", auth, admin, async (req, res, next) => {
 //update an order
 
 orderRouter.put("/:id", auth, admin, async (req, res, next) => {
-  const {
-    orderItems,
-    totalQty,
-    isDelivered
-  } = req.body;
+  // const {
+  //   orderItems,
+  //   totalQty,
+  //   isDelivered
+  // } = req.body;
 
   try {
       const order = await OrderModel.findById(req.params.id);
 
       if (order) {
 
-          order.isDelivered= !isDelivered
+          order.isDelivered= !order.isDelivered
          
           const updatedOrder = await order.save();
           res.json(updatedOrder);

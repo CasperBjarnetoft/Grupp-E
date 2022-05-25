@@ -19,7 +19,8 @@ const actiontypes = () => {
     orders: {
       getAllOrders: 'GET_ALL_ORDERS',
       loading: 'LOADING',
-      failure: 'ORDERS_FAILURE'
+      failure: 'ORDERS_FAILURE',
+      updateOrder: 'ORDER_UPDATE'
     },
     myOrders: {
       getMyOrders: 'GET_My_ORDERS',

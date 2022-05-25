@@ -4,6 +4,7 @@ import { getAllOrders, putOrderById } from '../store/actions/orderActions'
 import { useNavigate, Link } from 'react-router-dom'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+import axios from 'axios'
 
 const OrderList = () => {
 
@@ -14,17 +15,32 @@ const OrderList = () => {
 
     useEffect(() => {
         if (userInfo && userInfo.isAdmin) {
+            console.log('UE- get all orders')
             dispatch(getAllOrders())
         } else {
             navigate("/login")
         }
     }, [dispatch, navigate, userInfo])
 
-    const ToggleDelivered = (order) => {
+    const ToggleDelivered = async (order) => {
+        console.log('1', order._id)
         dispatch(putOrderById(order._id));     
+        // const config = {
+        //     headers: {
+        //       Authorization: `Bearer ${userInfo.token}`,
+        //     },
+      
+        //   }
+      
+        //   const res = await axios.put(`http://localhost:4000/orders/${order._id}`, {}, config)
+        //   console.log(res)
+        //   if(res.status === 200) {
+        //       order = {...res.data}
+        //   }
     }
 
     return (
+
         <div className="container">
             <h1>orders</h1>
 
