@@ -25,18 +25,6 @@ const OrderList = () => {
     const ToggleDelivered = async (order) => {
         console.log('1', order._id)
         dispatch(putOrderById(order._id));     
-        // const config = {
-        //     headers: {
-        //       Authorization: `Bearer ${userInfo.token}`,
-        //     },
-      
-        //   }
-      
-        //   const res = await axios.put(`http://localhost:4000/orders/${order._id}`, {}, config)
-        //   console.log(res)
-        //   if(res.status === 200) {
-        //       order = {...res.data}
-        //   }
     }
 
     return (

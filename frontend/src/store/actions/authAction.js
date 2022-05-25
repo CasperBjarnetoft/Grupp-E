@@ -1,7 +1,6 @@
 import axios from 'axios'
 import actiontypes from '../actiontypes'
 
-
 // login user
 export const login = (email, password) => async (dispatch) => {
     try {
@@ -72,3 +71,14 @@ export const register = (formData) => async (dispatch) => {
 }
 
 
+export const checkUser = () => {
+    return dispatch => {
+      let userInfo = localStorage.getItem('userInfo')
+      if(userInfo) {
+          dispatch({
+            type: actiontypes().login.userLogin,
+            payload: JSON.parse(userInfo) 
+        })
+    }
+}
+}

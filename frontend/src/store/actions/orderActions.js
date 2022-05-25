@@ -95,7 +95,7 @@ export const getOrderById = (id) => async (dispatch, getState) => {
     }
 
     const res = await axios.get(`http://localhost:4000/orders/${id}`, config)
-    console.log(res.data)
+    // console.log(res.data)
 
     dispatch({
       type: actiontypes().orderDetails.getOrderDetails,

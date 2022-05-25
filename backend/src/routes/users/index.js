@@ -38,7 +38,7 @@ userRouter.post("/register", async (req, res, next) => {
                     name: user.name,
                     email: user.email,
                     isAdmin: user.isAdmin,
-                    token: generateToken(user._id)
+                    token: generateToken(user)
                 })
             }
 
@@ -62,7 +62,7 @@ userRouter.post("/login", async (req, res, next) => {
             name: user.name,
             email: user.email,
             isAdmin: user.isAdmin,
-            token: generateToken(user._id)
+            token: generateToken(user)
 
         })
     } else {
@@ -72,8 +72,8 @@ userRouter.post("/login", async (req, res, next) => {
 
 //
 // generate token
-const generateToken = (id) => {
-    return jwt.sign({ id }, process.env.jwt_secret, {
+const generateToken = (user) => {
+    return jwt.sign({ id: user._id, name: user.name, email: user.email, isAdmin: user.isAdmin }, process.env.jwt_secret, {
         expiresIn: '30d'
     })
 }

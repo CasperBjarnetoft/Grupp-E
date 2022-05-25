@@ -39,7 +39,7 @@ export const orderDetailsReducer = (
                 loading: true,
             }
         case actiontypes().orderDetails.getOrderDetails:
-            console.log(action.payload)
+            // console.log(action.payload)
             return {
                 ...state,
                 loading: false,
