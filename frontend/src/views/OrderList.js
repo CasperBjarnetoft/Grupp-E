@@ -1,20 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getAllOrders } from '../store/actions/orderActions'
+import { getAllOrders, putOrderById } from '../store/actions/orderActions'
 import { useNavigate, Link } from 'react-router-dom'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-import axios from 'axios'
 
 const OrderList = () => {
 
     const dispatch = useDispatch()
     const { userInfo } = useSelector(state => state.userLogin)
     const { orders, loading, error } = useSelector(state => state.orderList)
-    const [check, setCheck] = useState(false)
-    const [ordersD, setOrdersD] = useState(orders)
-
-
     const navigate = useNavigate()
 
     useEffect(() => {
@@ -25,18 +20,8 @@ const OrderList = () => {
         }
     }, [dispatch, navigate, userInfo])
 
-    // const ToggleDelivered = (order) => {
-    //     console.log(order._id)
-    //     dispatch(putOrderById(order._id));     
-    // }
-
-    const tempput = (order) => {
-        const config = {
-            headers: {
-              Authorization: `Bearer ${userInfo.token}`
-            }
-          }
-        axios.put(`http://localhost:4000/orders/${order._id}`, {}, config).then((response) => console.log(response.data)).catch((error) => console.log(error));
+    const ToggleDelivered = (order) => {
+        dispatch(putOrderById(order._id));     
     }
 
     return (
@@ -68,7 +53,11 @@ const OrderList = () => {
                                 <td>{order.totalQty && order.totalQty}</td>
                                 <td>
                                     <p>
-                                        <input type="checkbox" onChange={() => tempput(order)}></input>
+                                        {order.isDelivered ? (
+                                           <i className="fa-solid fa-check"></i>
+                                        ) 
+                                        : <button className="btn btn-info text-light" onClick={() => ToggleDelivered(order)}>Delivered</button>
+                                    }
                                     </p>
                                 </td>
                                 <td>

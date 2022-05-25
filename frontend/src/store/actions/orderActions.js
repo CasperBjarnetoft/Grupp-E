@@ -127,8 +127,7 @@ export const putOrderById = (id) => async (dispatch, getState) => {
 
     }
 
-    const res = await axios.put(`http://localhost:4000/orders/${id}`, config)
-   
+    const res = await axios.put(`http://localhost:4000/orders/${id}`, {}, config)
     console.log(res.data)
 
     dispatch({
