@@ -23,16 +23,14 @@ const MyProfile = () => {
   useEffect(() => {
     if (userInfo) {
       dispatch(getMyOrders());
-    } else {
-      Navigate("/login");
-    }
+    } 
   }, [userInfo, dispatch]);
 
   return (
     <>
       <p className="mt-3">
         Welcome back{" "}
-        <span className="text-info">{userInfo.name && userInfo.name}! </span>{" "}
+        <span className="text-info">{userInfo?.name}! </span>{" "}
       </p>
       <div className="text-center mb-3">
         <h3>Delivered Orders</h3>

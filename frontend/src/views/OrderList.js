@@ -15,11 +15,8 @@ const OrderList = () => {
 
     useEffect(() => {
         if (userInfo && userInfo.isAdmin) {
-            console.log('UE- get all orders')
             dispatch(getAllOrders())
-        } else {
-            navigate("/login")
-        }
+        } 
     }, [dispatch, navigate, userInfo])
 
     const ToggleDelivered = async (order) => {

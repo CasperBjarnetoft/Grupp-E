@@ -17,7 +17,10 @@ const OrderDetails = () => {
     <div className="container">
       <h2>Order Items</h2>
       {order && order.isDelivered && order.isDelivered === true && (
-        <p>Is delivered</p>
+        <div className="d-flex flex-row">
+          <i className="fa-solid fa-check mt-1 me-1"></i>
+          <p className="text-success">Is delivered</p>
+        </div>
       )}
       {order && order.orderItems.length === 0 ? (
         //  <Message>Order Is empty</Message>

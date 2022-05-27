@@ -2,7 +2,9 @@ body {
   background-color: #eee;
 }
 
-
+.height {
+  min-height: 100vh;
+}
 
 .image-container {
   width: 100%;
